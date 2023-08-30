@@ -13,10 +13,6 @@ This project implements a conversational AI chatbot that uses speech recognition
 
 - Python 3.7+
 
-## Git
-
-Install required dependencies by running: `pip install -r requirements.txt`
-
 ## Usage
 
 1. **Clone the repository to your local machine:**
