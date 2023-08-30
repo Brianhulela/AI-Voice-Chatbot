@@ -1,5 +1,7 @@
 # Conversational AI Chatbot with Speech Recognition
 
+For more detailed instructions on how to build the chatbot, check out my article on [Medium](https://medium.com/@brianhulela/create-a-python-ai-voice-chatbot-with-speechrecognition-langchain-and-openai-gpt-3-5-turbo-c60f92f4a47c)
+
 This project implements a conversational AI chatbot that uses speech recognition to understand and respond to user input. The chatbot interacts with users through speech, providing engaging and entertaining conversations. It utilizes the OpenAI GPT-3.5 Turbo model for generating responses and integrates speech recognition capabilities for input.
 
 ## Features
