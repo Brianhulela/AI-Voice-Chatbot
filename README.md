@@ -1,44 +1,70 @@
 # Conversational AI Chatbot with Speech Recognition
+
 This project implements a conversational AI chatbot that uses speech recognition to understand and respond to user input. The chatbot interacts with users through speech, providing engaging and entertaining conversations. It utilizes the OpenAI GPT-3.5 Turbo model for generating responses and integrates speech recognition capabilities for input.
 
 ## Features
-Speech recognition: The chatbot listens to user speech input and converts it into text.
-Interactive responses: The chatbot uses the GPT-3.5 Turbo model to generate context-aware and engaging responses.
-Voice output: The chatbot's responses are synthesized into speech using the pyttsx3 library.
-Interactive conversation: The chatbot maintains a memory of past conversations to create a context-rich interaction.
+
+- Speech recognition: The chatbot listens to user speech input and converts it into text.
+- Interactive responses: The chatbot uses the GPT-3.5 Turbo model to generate context-aware and engaging responses.
+- Voice output: The chatbot's responses are synthesized into speech using the `pyttsx3` library.
+- Interactive conversation: The chatbot maintains a memory of past conversations to create a context-rich interaction.
 
 ## Prerequisites
-Python 3.7+
+
+- Python 3.7+
 
 ## Git
-Install required dependencies by running: pip install -r requirements.txt
+
+Install required dependencies by running: `pip install -r requirements.txt`
 
 ## Usage
-Clone the repository to your local machine:
-git clone https://github.com/yourusername/your-chatbot-repo.git
 
-## Navigate to the project directory:
-cd your-chatbot-repo
+1. **Clone the repository to your local machine:**
 
-## Install project dependencies:
-pip install -r requirements.txt
+    ```bash
+    git clone https://github.com/Brianhulela/AI-Voice-Chatbot/tree/master
+    ```
 
-## Set up your OpenAI API key:
+2. **Navigate to the project directory:**
 
-In the project directory, create a .env file and add the following line
-YOUR_OPENAI_API_KEY='your-openai-api-key', replace 'your-openai-api-key' with your actual OpenAI API key in the .env file.
+    ```bash
+    cd your-chatbot-repo
+    ```
 
-## Run the chatbot:
-python chatbot.py
+3. **Install project dependencies:**
 
-The chatbot will initiate a conversation by greeting you in a friendly manner. You can respond to the chatbot's prompts using your voice. To exit the conversation, say "bye".
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Set up your OpenAI API key:**
+
+    In the project directory, create a `.env` file and add the following line:
+    
+    ```
+    YOUR_OPENAI_API_KEY='your-openai-api-key'
+    ```
+    
+    Replace `'your-openai-api-key'` with your actual OpenAI API key in the `.env` file.
+
+5. **Run the chatbot:**
+
+    ```bash
+    python chatbot.py
+    ```
+
+    The chatbot will initiate a conversation by greeting you in a friendly manner. You can respond to the chatbot's prompts using your voice. To exit the conversation, say "bye".
 
 ## Notes
-Make sure you have an active internet connection to use the OpenAI API.
-You might need to adjust the microphone source in the listen() function if you have multiple audio devices.
+
+- Make sure you have an active internet connection to use the OpenAI API.
+- You might need to adjust the microphone source in the `listen()` function if you have multiple audio devices.
 
 ## Acknowledgments
-This project uses the OpenAI GPT-3.5 Turbo model for generating responses and https://mixkit.co/ for the sound effects.
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+- This project uses the OpenAI GPT-3.5 Turbo model for generating responses.
+- Sound effects provided by [mixkit.co](https://mixkit.co/).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
