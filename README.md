@@ -9,10 +9,6 @@ This project implements a conversational AI chatbot that uses speech recognition
 - Voice output: The chatbot's responses are synthesized into speech using the `pyttsx3` library.
 - Interactive conversation: The chatbot maintains a memory of past conversations to create a context-rich interaction.
 
-## Prerequisites
-
-- Python 3.7+
-
 ## Usage
 
 1. **Clone the repository to your local machine:**
@@ -24,7 +20,7 @@ This project implements a conversational AI chatbot that uses speech recognition
 2. **Navigate to the project directory:**
 
     ```bash
-    cd your-chatbot-repo
+    cd AI-Voice-Chatbot
     ```
 
 3. **Install project dependencies:**
@@ -46,7 +42,7 @@ This project implements a conversational AI chatbot that uses speech recognition
 5. **Run the chatbot:**
 
     ```bash
-    python chatbot.py
+    python ai_friend.py
     ```
 
     The chatbot will initiate a conversation by greeting you in a friendly manner. You can respond to the chatbot's prompts using your voice. To exit the conversation, say "bye".
@@ -61,6 +57,3 @@ This project implements a conversational AI chatbot that uses speech recognition
 - This project uses the OpenAI GPT-3.5 Turbo model for generating responses.
 - Sound effects provided by [mixkit.co](https://mixkit.co/).
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
