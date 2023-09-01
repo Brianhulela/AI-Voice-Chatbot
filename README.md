@@ -16,7 +16,7 @@ This project implements a conversational AI chatbot that uses speech recognition
 1. **Clone the repository to your local machine:**
 
     ```bash
-    git clone https://github.com/Brianhulela/AI-Voice-Chatbot/tree/master
+    git clone https://github.com/Brianhulela/AI-Voice-Chatbot
     ```
 
 2. **Navigate to the project directory:**
