@@ -3,3 +3,4 @@ python-dotenv
 pyttsx3
 langchain
 pygame
+pyaudio
