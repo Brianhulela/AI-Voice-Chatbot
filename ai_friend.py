@@ -84,6 +84,7 @@ def conversation():
 
         elif "bye" in user_input.lower():
             respond(conversation_chain.run({"question": "Send a friendly goodbye question and give a nice short sweet compliment based on the conversation."}))
+            model_voice.delete_mp3_files()
             return
         
         else:

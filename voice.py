@@ -50,3 +50,27 @@ class Voice:
 
         except pygame.error:
             print(f"Error loading or playing the file: {self.speech_file_path}")
+            
+    def delete_mp3_files(self):
+        try:
+            # List all files in the folder
+            files = os.listdir(self.speech_file_path)
+
+            # Filter only .mp3 files
+            mp3_files = [file for file in files if file.endswith(".mp3")]
+
+            # Delete each .mp3 file
+            for mp3_file in mp3_files:
+                file_path = os.path.join(self.speech_file_path, mp3_file)
+                try:
+                    os.remove(file_path)
+                    print(f"Deleted: {file_path}")
+                except PermissionError as e:
+                    print(f"Skipped: {file_path} (File in use)")
+
+            print("Deletion completed.")
+
+        except FileNotFoundError:
+            print(f"Folder not found: {self.speech_file_path}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
