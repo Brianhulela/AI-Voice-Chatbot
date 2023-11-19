@@ -2,13 +2,13 @@
 
 For more detailed instructions on how to build the chatbot, check out my article on [Medium](https://medium.com/@brianhulela/create-a-python-ai-voice-chatbot-with-speechrecognition-langchain-and-openai-gpt-3-5-turbo-c60f92f4a47c)
 
-This project implements a conversational AI chatbot that uses speech recognition to understand and respond to user input. The chatbot interacts with users through speech, providing engaging and entertaining conversations. It utilizes the OpenAI GPT-3.5 Turbo model for generating responses and integrates speech recognition capabilities for input.
+This project implements a conversational AI chatbot that uses speech recognition to understand and respond to user input. The chatbot interacts with users through speech, providing engaging and entertaining conversations. It utilizes the OpenAI GPT-3.5-turbo/GPT-4 LLM for generating responses and integrates speech recognition capabilities for input.
 
 ## Features
 
 - Speech recognition: The chatbot listens to user speech input and converts it into text.
 - Interactive responses: The chatbot uses the [Langchain](https://www.langchain.com/), GPT-3.5-turbo/GPT-4 model to generate context-aware and engaging responses.
-- Voice output: The chatbot's responses are synthesized into speech using the `pyttsx3` library.
+- Voice output: The chatbot's responses are synthesized into speech using OpenAI [Text-to-speech](https://platform.openai.com/docs/guides/text-to-speech)
 - Interactive conversation: The chatbot maintains a memory of past conversations to create a context-rich interaction.
 
 ## Usage
@@ -57,5 +57,3 @@ This project implements a conversational AI chatbot that uses speech recognition
 ## Acknowledgments
 
 - This project uses the OpenAI GPT-3.5-turbo/GPT-4 model for generating responses.
-- Sound effects provided by [mixkit.co](https://mixkit.co/).
-
