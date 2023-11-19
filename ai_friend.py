@@ -117,5 +117,5 @@ def conversation():
         
 
 if __name__ == "__main__":
-    respond(conversation_chain.run({"question": "Tell me a story"}))
+    respond(conversation_chain.run({"question": "Greet me in a friendly way."}))
     conversation()
