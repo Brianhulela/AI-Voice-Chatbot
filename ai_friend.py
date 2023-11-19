@@ -5,21 +5,9 @@ from langchain.prompts import PromptTemplate
 from langchain.memory import ConversationBufferMemory
 from langchain.chat_models import ChatOpenAI
 from langchain import LLMChain
-import pygame
 from voice import Voice
 
-# Initialize pygame
-pygame.init()
-
-# Load a sound file
-prompt_sound_file = "mixkit-high-tech-bleep-confirmation.wav"
-ai_thinking_sound_file = "mixkit-futuristic-sci-fi-computer-ambience.wav"
-ai_response_sound_file =  "mixkit-robotic-glitch.wav"
-
-ai_thinking_sound = pygame.mixer.Sound(ai_thinking_sound_file)
-prompt_sound = pygame.mixer.Sound(prompt_sound_file)
-ai_response_sound = pygame.mixer.Sound(ai_response_sound_file)
-
+# load the environment variables
 load_dotenv()
 
 # Initialise the Large Language Model
@@ -63,19 +51,10 @@ recognizer = sr.Recognizer()
 
 def listen():
     with sr.Microphone() as source:
-        # Play the sound
-        prompt_sound.play()
-
-        # Allow the sound to play for a while before quitting
-        pygame.time.wait(500)
-
-        # Quit pygame
-        #pygame.quit()
-        ai_thinking_sound.stop()
         print("Say something...")
         audio = recognizer.listen(source)
+        
     try:
-        ai_thinking_sound.play()
         print("Recognizing...")
         text = recognizer.recognize_google(audio)   # speech to text
         return text
@@ -97,22 +76,18 @@ def respond(model_response):
 
 def conversation():
     user_input = ""
+    
     while True:
         user_input = listen()
         if user_input is None:
             user_input = listen()
 
         elif "bye" in user_input.lower():
-            ai_response_sound.play()
-            pygame.time.wait(1000)
             respond(conversation_chain.run({"question": "Send a friendly goodbye question and give a nice short sweet compliment based on the conversation."}))
             return
         
         else:
             model_response = prompt_model(user_input)
-            ai_thinking_sound.stop()
-            ai_response_sound.play()
-            pygame.time.wait(1000)
             respond(model_response)
         
 
