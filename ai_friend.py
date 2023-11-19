@@ -1,12 +1,12 @@
 import speech_recognition as sr
 import os
 from dotenv import load_dotenv
-import pyttsx3
 from langchain.prompts import PromptTemplate
 from langchain.memory import ConversationBufferMemory
 from langchain.chat_models import ChatOpenAI
 from langchain import LLMChain
 import pygame
+from voice import Voice
 
 # Initialize pygame
 pygame.init()
@@ -55,16 +55,10 @@ conversation_chain = LLMChain(
     memory=memory
 )
 
-engine = pyttsx3.init()
+# initialize the voice instance
+model_voice = Voice()
 
-# Configure voice (optional)
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
-
-# Set properties (optional)
-engine.setProperty('rate', 180)
-engine.setProperty('volume', 0.9)
-
+# initialise the voice recognizer
 recognizer = sr.Recognizer()
 
 def listen():
@@ -98,9 +92,8 @@ def prompt_model(text):
 
 def respond(model_response):
     # Run the speech synthesis
-    engine.say(model_response)
-    engine.runAndWait()
-       
+    response_id = model_voice.generate_voice(model_response)
+    model_voice.play_voice(response_id)   
 
 def conversation():
     user_input = ""
@@ -124,5 +117,5 @@ def conversation():
         
 
 if __name__ == "__main__":
-    respond(conversation_chain.run({"question": "Greet me in a friendly way"}))
+    respond(conversation_chain.run({"question": "Tell me a story"}))
     conversation()
