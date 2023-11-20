@@ -1,4 +1,3 @@
-import speech_recognition as sr
 import os
 from dotenv import load_dotenv
 from langchain.prompts import PromptTemplate
@@ -6,6 +5,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chat_models import ChatOpenAI
 from langchain import LLMChain
 from voice import Voice
+from transcribe import Transcribe
 
 # load the environment variables
 load_dotenv()
@@ -46,23 +46,18 @@ conversation_chain = LLMChain(
 # initialize the voice instance
 model_voice = Voice()
 
-# initialise the voice recognizer
-recognizer = sr.Recognizer()
+# initialise the voice transcriber
+transcriber = Transcribe()
 
 def listen():
-    with sr.Microphone() as source:
-        print("Say something...")
-        audio = recognizer.listen(source)
-        
-    try:
-        print("Recognizing...")
-        text = recognizer.recognize_google(audio)   # speech to text
-        return text
-    except sr.UnknownValueError:
-        print("Could not understand audio")
-    except sr.RequestError as e:
-        print("Could not request results; {0}".format(e))
-        print("Recognizing...")
+    
+    file_path = transcriber.record_audio()
+    print(f"Audio recorded and saved to {file_path}")
+
+    # Transcribe audio
+    transcript_result = transcriber.transcribe_audio(file_path)
+    print(f"Transcription Result: {transcript_result}")
+    return transcript_result
 
 def prompt_model(text):
     # Prompt the LLM chain
@@ -84,7 +79,8 @@ def conversation():
 
         elif "bye" in user_input.lower():
             respond(conversation_chain.run({"question": "Send a friendly goodbye question and give a nice short sweet compliment based on the conversation."}))
-            model_voice.delete_mp3_files()
+            model_voice.delete_mp3_files()  # delete all the model response audio files
+            transcriber.delete_wav_audio_files()    # delete all the user recorded speech
             return
         
         else:
