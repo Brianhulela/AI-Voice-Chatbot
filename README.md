@@ -2,7 +2,7 @@
 
 For more detailed instructions on how to build the chatbot, check out my article on [Medium](https://medium.com/@brianhulela/create-a-python-ai-voice-chatbot-with-speechrecognition-langchain-and-openai-gpt-3-5-turbo-c60f92f4a47c)
 
-This project implements a conversational AI chatbot that uses speech recognition to understand and respond to user input. The chatbot interacts with users through speech, providing engaging and entertaining conversations. It utilizes the OpenAI GPT-3.5-turbo/GPT-4 LLM for generating responses and integrates speech recognition capabilities for input.
+This project implements a conversational AI chatbot that uses the [Whisper](https://platform.openai.com/docs/guides/speech-to-text) model to transcribe user speech to text. It utilizes the OpenAI GPT-3.5-turbo/GPT-4 LLM for generating human-like responses. It then synthesizes the output into human-like audio speech output using [Text-to-speech](https://platform.openai.com/docs/guides/text-to-speech).
 
 ## Features
 
